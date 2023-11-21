@@ -1,23 +1,24 @@
 import { createTheme } from '@mui/material';
+import { green} from '@mui/material/colors';
 
 
 export const DarkTheme = createTheme({
     palette: {
         primary: {
-            main: white[700],
-            dark: white[800],
-            light: white[500],
-            contrastText: '#ffffff',
+            main: '#e8f5e9',
+            dark: '#e8f5e9',
+            light: '#e8f5e9',
+            contrastText: '#000000',
         },
         secondary: {
-            main: black[800] ,
-            dark: black[400],
-            light: black[300],
-            contrastText: '#ffffff',
+            main: green[800] ,
+            dark: green[800],
+            light: green[800],
+            contrastText: '#000000'
         },
         background: {
-            default:'#f7f6f3' ,
-            paper:'#ffffff' ,
+            default:'#303134' ,
+            paper:'#202124' ,
         }
     }
 });
