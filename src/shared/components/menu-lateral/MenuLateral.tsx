@@ -8,7 +8,7 @@ export const MenuLateral:React.FC<IMenuLateral> = ({children})=>{
   const theme = useTheme();
   return (
     <>
-      <Drawer variant='permanent'>
+      <Drawer variant='temporary'>
         <Box width={theme.spacing(28)} height="100%" display="flex" flexDirection="column"  >
           
           <Box width="100%" height={theme.spacing(15)} display="flex" alignItems="center" justifyContent="center">
