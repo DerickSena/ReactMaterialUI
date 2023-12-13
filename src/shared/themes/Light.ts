@@ -3,21 +3,22 @@ import { cyan, yellow } from '@mui/material/colors';
 
 export const LightTheme = createTheme({
   palette: {
+    mode:'light',
     primary: {
       main: yellow[800],
       dark: yellow[700],
-      light: yellow[600],
+      light: yellow[500],
       contrastText: '#ffffff',
     },
     secondary: {
-      main: cyan[800],
-      dark: cyan[800],
-      light: cyan[800],
+      main: cyan[500],
+      dark: cyan[400],
+      light: cyan[300],
       contrastText: '#ffffff',
     },
     background: {
-      default: '#202124',
-      paper: '#303134',
+      default: '#f7f6f3',
+      paper: '#ffffff',
     }
   }
 });
