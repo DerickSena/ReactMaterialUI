@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Icon, Paper, Skeleton, Typography, useTheme} from '@mui/material';
+import { Box, Button, Divider, Icon, Paper, Skeleton, Theme, Typography, useMediaQuery, useTheme} from '@mui/material';
 
 interface IFerramentasDeDetalhesProps{
   textoBotaoNovo?: string;
@@ -45,6 +45,8 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
   aoClicarEmSalvarEFechar,
     
 }) => {
+  const smDown = useMediaQuery((theme: Theme)=>theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme)=>theme.breakpoints.down('md'));
   const theme = useTheme();
 
 
@@ -76,7 +78,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
       )}
 
 
-      {(mostrarBotaoSalvarEFechar && !mostrarBotaoSalvarEFecharCarregando) && (
+      {(mostrarBotaoSalvarEFechar && !mostrarBotaoSalvarEFecharCarregando && !smDown && !mdDown) && (
         <Button
           color='primary'
           disableElevation
@@ -112,7 +114,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
       )}
 
 
-      {(mostrarBotaoNovo && !mostrarBotaoNovoCarregando) && (
+      {(mostrarBotaoNovo && !mostrarBotaoNovoCarregando  && !smDown && !mdDown) && (
         <Button
           color='primary'
           disableElevation
