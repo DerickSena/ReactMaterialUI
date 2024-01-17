@@ -1,4 +1,5 @@
 import { Box, Button, Divider, Icon, Paper, Skeleton, Theme, Typography, useMediaQuery, useTheme} from '@mui/material';
+import React from 'react';
 
 interface IFerramentasDeDetalhesProps{
   textoBotaoNovo?: string;
@@ -22,6 +23,8 @@ interface IFerramentasDeDetalhesProps{
   aoClicarEmSalvarEFechar?: () => void;
 
 }
+
+
 
 export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
   textoBotaoNovo = 'Novo',
@@ -49,7 +52,6 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
   const mdDown = useMediaQuery((theme: Theme)=>theme.breakpoints.down('md'));
   const theme = useTheme();
 
-
   return(
     <Box 
       gap={1} 
@@ -60,6 +62,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
       height={theme.spacing(5)} 
       component={Paper}
     >
+      
       {(mostrarBotaoSalvar && !mostrarBotaoSalvarCarregando) && (
         <Button
           color='primary'
@@ -91,7 +94,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
           </Typography>
         </Button>
       )}
-      {mostrarBotaoSalvarEFecharCarregando &&(
+      {(mostrarBotaoSalvarEFecharCarregando  && !smDown && !mdDown) &&(
         <Skeleton width={180} height={60}/>
       )}
 
@@ -114,7 +117,7 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
       )}
 
 
-      {(mostrarBotaoNovo && !mostrarBotaoNovoCarregando  && !smDown && !mdDown) && (
+      {(mostrarBotaoNovo && !mostrarBotaoNovoCarregando  && !smDown) && (
         <Button
           color='primary'
           disableElevation
@@ -127,10 +130,18 @@ export const FerramentasDeDetalhes: React.FC<IFerramentasDeDetalhesProps> = ({
           </Typography>
         </Button>
       )}
-      {mostrarBotaoNovoCarregando &&(
+      {(mostrarBotaoNovoCarregando && !smDown) && (
         <Skeleton width={110} height={60} />
       )}
-      <Divider variant='middle' orientation='vertical'/>
+
+      { 
+        (
+          mostrarBotaoVoltar && 
+          (mostrarBotaoNovo || mostrarBotaoApagar || mostrarBotaoSalvar || mostrarBotaoSalvarEFechar)
+        ) && (
+          <Divider variant='middle' orientation='vertical'/>
+        )
+      }
 
 
       {(mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando) && (

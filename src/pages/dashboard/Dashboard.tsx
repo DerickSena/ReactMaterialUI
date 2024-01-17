@@ -11,7 +11,9 @@ export const Dashboard=()=>{
       barraDeFerramentas={(
         <FerramentasDeDetalhes
           mostrarBotaoSalvarEFechar />
-      )}    >
+      
+      )} >
+      
     </LayoutBaseDePagina>
   );
 };
