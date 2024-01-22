@@ -1,6 +1,8 @@
 import { Search } from '@mui/icons-material';
 import { Box, Button, Icon, InputAdornment, Paper, TextField, useTheme } from '@mui/material';
 
+import { Environment } from '../../environment';
+
 interface IFerramentasDaListagemProps {
     textoDaBusca?:string;
     mostrarInputBusca?: boolean;
@@ -37,7 +39,7 @@ export const FerramentasDaListagem :React.FC<IFerramentasDaListagemProps> = ({
           onChange={(e) => aoMudarTextDeBusca?.(e.target.value)}
           variant='standard'
           size='small'
-          placeholder='Pesquisar...'
+          placeholder= {Environment.INPUT_DE_BUSCA}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
